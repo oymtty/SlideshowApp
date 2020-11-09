@@ -64,6 +64,11 @@ class ViewController: UIViewController {
 //imageViewをタップした時の処理（User Interaction Enabledをonにしておく）
     @IBAction func tapAction(_ sender: Any) {//Tap Gesture Recognizerを被せると、ImageViewにActionをつけられる
         performSegue(withIdentifier: "toB_ViewController",sender: nil)//segueを呼び出す
+        timer.invalidate()//タイマーを停止する
+        timer = nil//タイマーを削除
+        startButton.setTitle("再生", for: .normal)//ボタンの名前を"再生"にする
+        nextButton.isEnabled = true//進むボタンを有効にする
+        backButton.isEnabled = true//戻るボタンを有効にする
     }
 //遷移先に値を受け渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
